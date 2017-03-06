@@ -1,5 +1,4 @@
 class PeopleController < ApplicationController
-  protect_from_forgery
 
   def index
     @msg = 'Person data.'
@@ -13,16 +12,18 @@ class PeopleController < ApplicationController
 
   def add
     @msg = "add new data."
+    @person = Person.new
   end
 
   def create
     if request.post? then
-      obj = Person.create(
-        name: params['name'],
-        age:  params['age'],
-        mail: params['mail']
-      )
+      Person.create(person_params)
     end
     redirect_to '/people'
+  end
+
+  private
+  def person_params
+    params.require(:person).permit(:name, :age, :mail)
   end
 end
