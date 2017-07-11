@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'cards/delete/:id', to: 'cards#delete'
 
+  get 'people/find'
+  post 'people/find'
   get 'people/add'
   post 'people/add', to: 'people#create'
   get 'people/index'
@@ -22,8 +24,6 @@ Rails.application.routes.draw do
   post 'people/edit/:id', to: 'people#update'
   patch 'people/edit/:id', to: 'people#update'
   get 'people/delete/:id', to: 'people#delete'
-  get 'people/find'
-  post 'people/find'
 
   get 'dengonban/index'
   post 'dengonban/index'
