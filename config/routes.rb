@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post 'messages/add', to: 'messages#create'
 
   get 'messages/edit/:id', to: 'messages#edit'
-  post 'messages/edit/:id', to: 'messages#update'
+  patch 'messages/edit/:id', to: 'messages#update'
 
   get 'messages/delete/:id', to: 'messages#delete'
   get 'messages/:id', to: 'messages#show'
